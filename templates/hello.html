@@ -1,0 +1,170 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>Signin Template · Bootstrap v5.0</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <main class="form-add-data ">
+            <form id="form_data" class="needs-validation" action="/add-new-data" method="post" novalidate>
+                <div id="formStep1" class="conteiner">
+                    <h1 class="h3 mb-3 fw-normal">Customer Information</h1>
+                    <div class="form-floating">
+                        <input type="text" name="company_name" class="form-control bg-grey" id="company_name" required>
+                        <label for="floatingInput">Company name</label>
+                        <div class="invalid-feedback">
+                            Please choose a Company name.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="company_site" class="form-control" id="company_site" required>
+                        <label for="company_site">Company site</label>
+                        <div class="invalid-feedback">
+                            Please choose a Company site.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="first_name" class="form-control" id="first_name" required>
+                        <label for="first_name">First Name</label>
+                        <div class="invalid-feedback">
+                            Please choose a First Name.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="last_name" class="form-control" id="last_name" required>
+                        <label for="last_name">Last Name</label>
+                        <div class="invalid-feedback">
+                            Please choose a Last Name.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="date" name="birthday" class="form-control" id="birthday" required>
+                        <label for="birthday">Birthday</label>
+                        <div class="invalid-feedback">
+                            Please choose a Birthday.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" name="email" class="form-control" id="email" required>
+                        <label for="email">Email</label>
+                        <div class="invalid-feedback">
+                            Please choose a Email.
+                        </div>
+                    </div>
+                    <div class="row justify-content-end mt-3">
+                        <div class="col text-end">
+                            <button id="btnNextOn2" class="btn px-3 btn-sm btn-outline-secondary " type="button">next</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="formStep2" class="conteiner">
+                    <h1 class="h3 mb-3 fw-normal">Address Infomation</h1>
+                    <div class="form-floating">
+                        <input type="text" name="billing_country" class="form-control" id="billing_country" required>
+                        <label for="floatingInput">Billing Country</label>
+                        <div class="invalid-feedback">
+                            Please choose a Billing Country.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="billing_state" class="form-control" id="billing_state" required>
+                        <label for="floatingInput">Billing State / Province</label>
+                        <div class="invalid-feedback">
+                            Please choose a Billing State / Province.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="billing_zip" class="form-control" id="billing_zip" required>
+                        <label for="floatingInput">Billing Zip / Postal Code</label>
+                        <div class="invalid-feedback">
+                            Please choose a Billing Zip / Postal Code.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="billing_city" class="form-control" id="billing_city" required>
+                        <label for="floatingPassword">Billing City</label>
+                        <div class="invalid-feedback">
+                            Please choose a Billing City.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" name="billing_street" class="form-control" id="billing_street" required>
+                        <label for="floatingPassword">Billing Street</label>
+                        <div class="invalid-feedback">
+                            Please choose a Billing Street.
+                        </div>
+                    </div>
+                    <div class="checkbox mb-3 mt-2 text-start">
+                        <label>
+                            <input type="checkbox" name="add_shipping_address" value="add_shipping_address"> Add shipping address
+                        </label>
+                    </div>
+                    <div class="row justify-content-between mt-3">
+                        <div class="col text-start">
+                            <button id="btnPrevOn1" class="btn px-3 btn-sm btn-outline-secondary" type="button">prev</button>
+                        </div>
+                        <div class="col text-end">
+                            <button id="btnNextOn3" class="btn px-3 btn-sm btn-outline-secondary" type="button">next</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="formStep3" class="conteiner">
+                    <h1 class="h3 mb-3 fw-normal">Check & Submit</h1>
+                    <div class="row text-start">
+                        <div class="col">
+                            <p class="m-1">Company name</p>
+                            <p class="m-1">Company site</p>
+                            <p class="m-1">First Name</p>
+                            <p class="m-1">Last Name</p>
+                            <p class="m-1">Birthday</p>
+                            <p class="m-1">Email</p>
+                            <p class="m-1">Billing Country</p>
+                            <p class="m-1">Billing State / Province</p>
+                            <p class="m-1">Billing Zip / Postal Code</p>
+                            <p class="m-1">Billing City</p>
+                            <p class="m-1">Billing Street</p>
+                        </div>
+                        <div class="col text-start">
+                            <p id="company_nameText" class="m-1"></p>
+                            <p id="company_siteText" class="m-1"></p>
+                            <p id="first_nameText" class="m-1"></p>
+                            <p id="last_nameText" class="m-1"></p>
+                            <p id="birthdayText" class="m-1"></p>
+                            <p id="emailText" class="m-1"></p>
+                            <p id="billing_countryText" class="m-1"></p>
+                            <p id="billing_stateText" class="m-1"></p>
+                            <p id="billing_zipText" class="m-1"></p>
+                            <p id="billing_cityText" class="m-1"></p>
+                            <p id="billing_streetText" class="m-1"></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mt-3">
+                        <div class="col text-start">
+                            <button id="btnPrevOn2" class="btn px-3 btn-sm btn-outline-secondary" type="button">prev</button>
+                        </div>
+                        <div class="col text-end">
+                            <button class="btn px-3 btn-sm btn-outline-secondary" type="submit">submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='script.js') }}" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    </body>
+</html>
