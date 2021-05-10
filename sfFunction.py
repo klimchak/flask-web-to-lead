@@ -2,9 +2,8 @@ import logging
 import datetime
 from simple_salesforce import Salesforce
 
-sf = Salesforce(username='expenseappklim@gmail.com', password='vMsaD6gZLTR6RR8',
-                security_token='lTpX3viC0c4EJ3j93YiJCrI5S')
-
+sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
+                security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
 
 def auth():
     query = "SELECT Id, Email, Password__c, LastName, Admin__c, Office__c FROM Contact LIMIT 1"
@@ -24,7 +23,7 @@ def getBalance(userContactId):
     return reminder
 
 
-def setNewExpCard(userIdContact, dateNewExpCard, currNewExpCard, descrNewExpCard):
+def setNewLead(userIdContact, dateNewExpCard, currNewExpCard, descrNewExpCard):
     data = sf.ExpenseCard__c.create(
         {'Amount__c': currNewExpCard, 'CardDate__c': dateNewExpCard, 'CardKeeper__c': userIdContact,
          'Description__c': descrNewExpCard})
