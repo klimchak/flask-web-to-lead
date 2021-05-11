@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, abort, redirect, url_for
 from simple_salesforce import Salesforce
 
-sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
-                security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
+# sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
+#                 security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
 
 app = Flask(__name__)
 
