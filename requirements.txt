@@ -5,12 +5,10 @@ chardet==4.0.0
 click==7.1.2
 cryptography==3.4.7
 dnspython==2.1.0
-email-validator==1.1.2
 Flask==1.1.2
 idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.3
-logging==0.4.9.6
 MarkupSafe==1.1.1
 pip==21.1.1
 pycparser==2.20
