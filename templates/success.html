@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>OK</h1>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block stylefile %}
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block form %}
+    <div id="resultSuccess" class="conteiner">
+        <h1 class="h3 mb-3 fw-normal">Congratulation!</h1>
+        <div class="row text-start">
+            <div class="col">
+                <p class="m-1">Company name</p>
+                <p class="m-1">Company site</p>
+                <p class="m-1">First Name</p>
+                <p class="m-1">Last Name</p>
+                <p class="m-1">Birthday</p>
+                <p class="m-1">Email</p>
+                <p class="m-1">Billing Country</p>
+                <p class="m-1">Billing State / Province</p>
+                <p class="m-1">Billing Zip / Postal Code</p>
+                <p class="m-1">Billing City</p>
+                <p class="m-1">Billing Street</p>
+                {% if 'add_shipping_address' in data %}
+                    <p class="m-1">Add shipping address</p>
+                {% endif %}
+            </div>
+            <div class="col text-start">
+                <p id="company_nameText" class="m-1">{{ data['company_name'] }}</p>
+                <p id="company_siteText" class="m-1">{{ data['company_site'] }}</p>
+                <p id="first_nameText" class="m-1">{{ data['first_name'] }}</p>
+                <p id="last_nameText" class="m-1">{{ data['last_name'] }}</p>
+                <p id="birthdayText" class="m-1">{{ data['birthday'] }}</p>
+                <p id="emailText" class="m-1">{{ data['email'] }}</p>
+                <p id="billing_countryText" class="m-1">{{ data['billing_country'] }}</p>
+                <p id="billing_stateText" class="m-1">{{ data['billing_state'] }}</p>
+                <p id="billing_zipText" class="m-1">{{ data['billing_zip'] }}</p>
+                <p id="billing_cityText" class="m-1">{{ data['billing_city'] }}</p>
+                <p id="billing_streetText" class="m-1">{{ data['billing_street'] }}</p>
+                {% if 'add_shipping_address' in data %}
+                    <p id="add_shipping_address" class="m-1">True</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row justify-content-between mt-3">
+            <div class="col text-end">
+                <a class="btn px-3 btn-sm btn-outline-secondary stretched-link" role="button" aria-pressed="true" href="{{ url_for('formcallback') }}">Back main page</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

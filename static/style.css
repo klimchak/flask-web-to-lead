@@ -9,7 +9,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-image: url("https://krot.info/uploads/posts/2021-01/1611847593_11-p-fon-millimetrovka-12.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
 }
 

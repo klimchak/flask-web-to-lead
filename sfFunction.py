@@ -2,8 +2,8 @@ import logging
 import datetime
 from simple_salesforce import Salesforce
 
-sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
-                security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
+# sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
+#                 security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
 
 def auth():
     query = "SELECT Id, Email, Password__c, LastName, Admin__c, Office__c FROM Contact LIMIT 1"
