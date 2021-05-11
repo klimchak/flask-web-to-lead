@@ -279,4 +279,10 @@
 
 {% block userscript %}
     <script src="{{ url_for('static', filename='script.js') }}" ></script>
+    {% if 'company_name' in data %}
+        <script>
+            $('.toast-body').text('Unknown error. Please try again later.');
+            $('.toast').toast('show');
+        </script>
+    {% endif %}
 {% endblock %}

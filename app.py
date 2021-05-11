@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, abort, redirect, url_for
-import logging
-import sfFunction
+from simple_salesforce import Salesforce
+
+sf = Salesforce(username='webtoleadtask8@gmail.com', password='JfCx5UY55YHSxx7',
+                security_token='pPbkhqsnhYo4j0YuPfrUBbwn')
 
 app = Flask(__name__)
 
@@ -19,7 +21,7 @@ def formcallback():
 def add_new_data():
     if request.method == 'POST':
         if 'add_shipping_address' in request.form:
-            data = sfFunction.sf.Lead.create({'Company': request.form['company_name'],
+            data = sf.Lead.create({'Company': request.form['company_name'],
                                               'Website': request.form['company_site'],
                                               'FirstName': request.form['first_name'],
                                               'LastName': request.form['last_name'],
@@ -32,7 +34,7 @@ def add_new_data():
                                               'Street': request.form['billing_street'],
                                               'Add_shipping_address__c': True})
         else:
-            data = sfFunction.sf.Lead.create({'Company': request.form['company_name'],
+            data = sf.Lead.create({'Company': request.form['company_name'],
                                               'Website': request.form['company_site'],
                                               'FirstName': request.form['first_name'],
                                               'LastName': request.form['last_name'],
