@@ -48,8 +48,6 @@ def add_new_data():
                                            'City': request.form['billing_city'],
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': True})
-                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-                    print(data['message'])
                     if 'success' in data and data['success'] is True:
                         print(data)
                         return render_template('success.html', data=request.form)
@@ -59,7 +57,8 @@ def add_new_data():
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                    print(e)
+                    print(e.keys())
+                    print(e.content.keys())
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
             else:
@@ -76,8 +75,6 @@ def add_new_data():
                                            'City': request.form['billing_city'],
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': False})
-                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-                    print(data['message'])
                     if 'success' in data and data['success'] is True:
                         print(data)
                         return render_template('success.html', data=request.form)
@@ -87,7 +84,8 @@ def add_new_data():
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                    print(e)
+                    print(e.keys())
+                    print(e.content.keys())
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
             # if 'success' in data and data['success'] is True:
