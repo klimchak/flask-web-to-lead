@@ -30,15 +30,11 @@ def formcallback():
     return render_template('hello.html')
 
 
-# 6Ldzl9AaAAAAACfwgifiSavC11hq0Wp_k8-EXdW-
-# 6Ldzl9AaAAAAAOfokU2A6Jh173y6cQBAojvtXa-T
-
 @app.route('/add-new-data', methods=['POST', 'GET'])
 def add_new_data():
     if request.method == 'POST':
         if recaptcha.verify():
             if 'add_shipping_address' in request.form:
-                print('!!!!!!!  без галки !!!!!!!')
                 data = True
                 # data = sf.Lead.create({'Company': request.form['company_name'],
                 #                        'Website': request.form['company_site'],
@@ -53,7 +49,6 @@ def add_new_data():
                 #                        'Street': request.form['billing_street'],
                 #                        'Add_shipping_address__c': True})
             else:
-                print('!!!!!!!  без галки !!!!!!!')
                 data = False
                 # data = sf.Lead.create({'Company': request.form['company_name'],
                 #                        'Website': request.form['company_site'],
@@ -74,7 +69,7 @@ def add_new_data():
                 return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
-            return render_template('hello.html', data=request.form)  # ????
+            return render_template('hello.html', data=request.form)
     elif request.method == 'GET':
         return index()
 
