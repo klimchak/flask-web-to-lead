@@ -49,15 +49,11 @@ def add_new_data():
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': True})
                     if 'success' in data and data['success'] is True:
-                        print(data)
                         return render_template('success.html', data=request.form)
                     elif 'errorCode' in data:
-                        print(data)
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
-                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                    print(type(e))
                     flash(e.content[0]['message'])
                     return render_template('hello.html', data=request.form)
             else:
@@ -75,24 +71,13 @@ def add_new_data():
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': False})
                     if 'success' in data and data['success'] is True:
-                        print(data)
                         return render_template('success.html', data=request.form)
                     elif 'errorCode' in data:
-                        print(data)
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
-                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                    print(type(e))
                     flash(e.content[0]['message'])
                     return render_template('hello.html', data=request.form)
-            # if 'success' in data and data['success'] is True:
-            #     print(data)
-            #     return render_template('success.html', data=request.form)
-            # elif 'errorCode' in data:
-            #     print(data)
-            #     flash(data['message'])
-            #     return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
             return render_template('hello.html', data=request.form)
