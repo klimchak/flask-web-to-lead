@@ -16,3 +16,4 @@ requests==2.25.1
 simple-salesforce==1.11.1
 urllib3==1.26.4
 Werkzeug==1.0.1
+Flask-ReCaptcha==0.4.2
