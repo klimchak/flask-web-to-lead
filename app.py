@@ -58,7 +58,7 @@ def add_new_data():
                 except Exception as e:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     print(type(e))
-                    flash(str(e))
+                    flash(e.content[0]['message'])
                     return render_template('hello.html', data=request.form)
             else:
                 try:
@@ -84,7 +84,7 @@ def add_new_data():
                 except Exception as e:
                     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     print(type(e))
-                    flash(str(e))
+                    flash(e.content[0]['message'])
                     return render_template('hello.html', data=request.form)
             # if 'success' in data and data['success'] is True:
             #     print(data)
