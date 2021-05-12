@@ -63,8 +63,9 @@ def add_new_data():
             if 'success' in data and data['success'] is True:
                 print(data)
                 return render_template('success.html', data=request.form)
-            else:
+            elif 'errorCode' in data:
                 print(data)
+                flash(data['message'])
                 return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
