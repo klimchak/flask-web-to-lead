@@ -35,38 +35,60 @@ def add_new_data():
     if request.method == 'POST':
         if recaptcha.verify():
             if 'add_shipping_address' in request.form:
-                data = sf.Lead.create({'Company': request.form['company_name'],
-                                       'Website': request.form['company_site'],
-                                       'FirstName': request.form['first_name'],
-                                       'LastName': request.form['last_name'],
-                                       'Birthdate__c': request.form['birthday'],
-                                       'Email': request.form['email'],
-                                       'Country': request.form['billing_country'],
-                                       'State': request.form['billing_state'],
-                                       'PostalCode': request.form['billing_zip'],
-                                       'City': request.form['billing_city'],
-                                       'Street': request.form['billing_street'],
-                                       'Add_shipping_address__c': True})
+                try:
+                    data = sf.Lead.create({'Company': request.form['company_name'],
+                                           'Website': request.form['company_site'],
+                                           'FirstName': request.form['first_name'],
+                                           'LastName': request.form['last_name'],
+                                           'Birthdate__c': request.form['birthday'],
+                                           'Email': request.form['email'],
+                                           'Country': request.form['billing_country'],
+                                           'State': request.form['billing_state'],
+                                           'PostalCode': request.form['billing_zip'],
+                                           'City': request.form['billing_city'],
+                                           'Street': request.form['billing_street'],
+                                           'Add_shipping_address__c': True})
+                    if 'success' in data and data['success'] is True:
+                        print(data)
+                        return render_template('success.html', data=request.form)
+                    elif 'errorCode' in data:
+                        print(data)
+                        flash(data['message'])
+                        return render_template('hello.html', data=request.form)
+                except Exception as e:
+                    flash(str(e))
+                    return render_template('hello.html', data=request.form)
             else:
-                data = sf.Lead.create({'Company': request.form['company_name'],
-                                       'Website': request.form['company_site'],
-                                       'FirstName': request.form['first_name'],
-                                       'LastName': request.form['last_name'],
-                                       'Birthdate__c': request.form['birthday'],
-                                       'Email': request.form['email'],
-                                       'Country': request.form['billing_country'],
-                                       'State': request.form['billing_state'],
-                                       'PostalCode': request.form['billing_zip'],
-                                       'City': request.form['billing_city'],
-                                       'Street': request.form['billing_street'],
-                                       'Add_shipping_address__c': False})
-            if 'success' in data and data['success'] is True:
-                print(data)
-                return render_template('success.html', data=request.form)
-            elif 'errorCode' in data:
-                print(data)
-                flash(data['message'])
-                return render_template('hello.html', data=request.form)
+                try:
+                    data = sf.Lead.create({'Company': request.form['company_name'],
+                                           'Website': request.form['company_site'],
+                                           'FirstName': request.form['first_name'],
+                                           'LastName': request.form['last_name'],
+                                           'Birthdate__c': request.form['birthday'],
+                                           'Email': request.form['email'],
+                                           'Country': request.form['billing_country'],
+                                           'State': request.form['billing_state'],
+                                           'PostalCode': request.form['billing_zip'],
+                                           'City': request.form['billing_city'],
+                                           'Street': request.form['billing_street'],
+                                           'Add_shipping_address__c': False})
+                    if 'success' in data and data['success'] is True:
+                        print(data)
+                        return render_template('success.html', data=request.form)
+                    elif 'errorCode' in data:
+                        print(data)
+                        flash(data['message'])
+                        return render_template('hello.html', data=request.form)
+                except Exception as e:
+                    flash(str(e))
+                    return render_template('hello.html', data=request.form)
+            # if 'success' in data and data['success'] is True:
+            #     print(data)
+            #     return render_template('success.html', data=request.form)
+            # elif 'errorCode' in data:
+            #     print(data)
+            #     flash(data['message'])
+            #     return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
             return render_template('hello.html', data=request.form)
