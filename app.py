@@ -48,6 +48,7 @@ def add_new_data():
                                            'City': request.form['billing_city'],
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': True})
+                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                     print(data['message'])
                     if 'success' in data and data['success'] is True:
                         print(data)
@@ -57,6 +58,7 @@ def add_new_data():
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
+                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     print(e)
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
@@ -74,6 +76,7 @@ def add_new_data():
                                            'City': request.form['billing_city'],
                                            'Street': request.form['billing_street'],
                                            'Add_shipping_address__c': False})
+                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                     print(data['message'])
                     if 'success' in data and data['success'] is True:
                         print(data)
@@ -83,6 +86,7 @@ def add_new_data():
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
+                    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
                     print(e)
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
