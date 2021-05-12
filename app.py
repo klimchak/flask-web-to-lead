@@ -61,8 +61,10 @@ def add_new_data():
                                        'Street': request.form['billing_street'],
                                        'Add_shipping_address__c': False})
             if 'success' in data and data['success'] is True:
+                print(data)
                 return render_template('success.html', data=request.form)
             else:
+                print(data)
                 return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
