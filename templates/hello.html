@@ -262,6 +262,9 @@
                 <div class="col text-start">
                     <button id="btnPrevOn2" class="btn px-3 btn-sm btn-outline-secondary" type="button">prev</button>
                 </div>
+                <div class="col text-center">
+                    {{ recaptcha }}
+                </div>
                 <div class="col text-end">
                     <button class="btn px-3 btn-sm btn-outline-secondary" type="submit">submit</button>
                 </div>
@@ -285,4 +288,14 @@
             $('.toast').toast('show');
         </script>
     {% endif %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    $('.toast-body').text('{{ message }}');
+                    $('.toast').toast('show');
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 {% endblock %}
