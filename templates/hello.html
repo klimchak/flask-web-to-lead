@@ -284,16 +284,20 @@
     <script src="{{ url_for('static', filename='script.js') }}" ></script>
     {% if 'company_name' in data %}
         <script>
-            $('.toast-body').text('Unknown error. Please try again later.');
-            $('.toast').toast('show');
+            $(document).ready(function(){
+                $('.toast-body').text('Unknown error. Please try again later.');
+                $('.toast').toast('show');
+            });
         </script>
     {% endif %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
                 <script>
-                    $('.toast-body').text('{{ message }}');
-                    $('.toast').toast('show');
+                    $(document).ready(function(){
+                        $('.toast-body').text('{{ message }}');
+                        $('.toast').toast('show');
+                    });
                 </script>
             {% endfor %}
         {% endif %}
