@@ -21,13 +21,13 @@ app.config['SECRET_KEY'] = 'webtoleadtask8'
 
 
 @app.route('/', methods=['POST', 'GET'])
-def index(data):
-    return redirect(url_for('formcallback'), data)
+def index():
+    return redirect(url_for('formcallback'))
 
 
 @app.route('/formcallback')
-def formcallback(data):
-    return render_template('hello.html', data=data)
+def formcallback():
+    return render_template('hello.html')
 
 
 # 6Ldzl9AaAAAAACfwgifiSavC11hq0Wp_k8-EXdW-
@@ -71,12 +71,10 @@ def add_new_data():
             if data is True:
                 return render_template('success.html', data=request.form)
             else:
-                # return render_template('hello.html', data=request.form)
-                return index(request.form)
+                return render_template('hello.html', data=request.form)
         else:
             flash('Error ReCaptcha')
-            # return render_template('hello.html', data=request.form)  # ????
-            return index(request.form)
+            return render_template('hello.html', data=request.form)  # ????
     elif request.method == 'GET':
         return index()
 
