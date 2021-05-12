@@ -56,6 +56,7 @@ def add_new_data():
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
+                    print(e)
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
             else:
@@ -80,6 +81,7 @@ def add_new_data():
                         flash(data['message'])
                         return render_template('hello.html', data=request.form)
                 except Exception as e:
+                    print(e)
                     flash(str(e))
                     return render_template('hello.html', data=request.form)
             # if 'success' in data and data['success'] is True:
